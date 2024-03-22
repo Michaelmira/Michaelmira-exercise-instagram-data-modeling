@@ -39,6 +39,14 @@ class CommentDisike(Base):
     dislike = Column(Boolean, nullable=False)
     count = Column(Integer)
 
+class CommentLike(Base): 
+    __tablename__ = 'comment_like'
+    id = Column(Integer, primary_key=True)
+    comment_id = Column(Integer, ForeignKey('comment.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
+    like = Column(Boolean, nullable=False)
+    count = Column(Integer)
+
 # class Person(Base):
 #     __tablename__ = 'person'
 #     # Here we define columns for the table person
