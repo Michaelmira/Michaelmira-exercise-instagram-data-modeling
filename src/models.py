@@ -7,6 +7,14 @@ from eralchemy2 import render_er
 
 Base = declarative_base()
 
+class Post Dislike(Base):
+    __tablename__ = "post_dislike"
+    id = Column(integer, primary_key=True)
+    postID = Column(integer, ForeignKey("post.id"))
+    user_id = Column(Integer, ForeignKey('user.id'))
+    dislike = Column(Boolean, nullable=False)
+    count = Column(Integer)
+
 class Person(Base):
     __tablename__ = 'person'
     # Here we define columns for the table person
