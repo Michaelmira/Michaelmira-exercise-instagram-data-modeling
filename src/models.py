@@ -54,6 +54,14 @@ class Comment(Base):
     user_id = Column(Integer, ForeignKey('user.id'))
     post_id = Column(Integer, ForeignKey('post.id'))
 
+class User(Base):
+    __tablename__ = 'user'
+    # Here we define columns for the table person
+    # Notice that each column is also a normal Python instance attribute.
+    id = Column(Integer, primary_key=True)
+    username = Column(String(50), nullable=False)
+    email = Column(String(250), nullable=False)
+
 # class Person(Base):
 #     __tablename__ = 'person'
 #     # Here we define columns for the table person
