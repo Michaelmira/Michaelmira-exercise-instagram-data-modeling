@@ -62,6 +62,15 @@ class User(Base):
     username = Column(String(50), nullable=False)
     email = Column(String(250), nullable=False)
 
+class FollowRequest(Base):
+    __tablename__ = 'follow_request'
+    # Here we define columns for the table address.
+    # Notice that each column is also a normal Python instance attribute.
+    id = Column(Integer, primary_key=True)
+    follower_id = Column(Integer, ForeignKey('user.id'))
+    followed_id = Column(Integer, ForeignKey('user.id'))
+    accepted = Column(Boolean, nullable=False)
+
 # class Person(Base):
 #     __tablename__ = 'person'
 #     # Here we define columns for the table person
