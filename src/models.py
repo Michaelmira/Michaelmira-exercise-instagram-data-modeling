@@ -47,6 +47,13 @@ class CommentLike(Base):
     like = Column(Boolean, nullable=False)
     count = Column(Integer)
 
+class Comment(Base):
+    __tablename__ = 'comment'
+    id = Column(Integer, primary_key=True)
+    comment_text = Column(String(1000), nullable=False)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    post_id = Column(Integer, ForeignKey('post.id'))
+
 # class Person(Base):
 #     __tablename__ = 'person'
 #     # Here we define columns for the table person
