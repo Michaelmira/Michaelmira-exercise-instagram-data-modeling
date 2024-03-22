@@ -15,6 +15,14 @@ class Post Dislike(Base):
     dislike = Column(Boolean, nullable=False)
     count = Column(Integer)
 
+class PostLike(Base): 
+    __tablename__ = 'post_like'
+    id = Column(Integer, primary_key=True)
+    postID = Column(Integer, ForeignKey('post.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
+    like = Column(Boolean, nullable=False)
+    count = Column(Integer)
+
 class Person(Base):
     __tablename__ = 'person'
     # Here we define columns for the table person
