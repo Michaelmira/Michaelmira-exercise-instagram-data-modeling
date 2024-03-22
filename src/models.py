@@ -71,8 +71,6 @@ class FollowRequest(Base):
     followed_id = Column(Integer, ForeignKey('user.id'))
     accepted = Column(Boolean, nullable=False)
 
-
-
     def to_dict(self):
         return {}
 
